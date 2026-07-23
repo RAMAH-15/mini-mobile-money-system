@@ -1,13 +1,108 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Mobile Money System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e293b;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 350px;
+            text-align: center;
+        }
+        .balance-card {
+            background-color: #334155;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .balance-amount {
+            font-size: 28px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border-radius: 6px;
+            border: 1px solid #475569;
+            background-color: #0f172a;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        button {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-deposit { background-color: #22c55e; color: white; }
+        .btn-withdraw { background-color: #ef4444; color: white; }
+        button:hover { opacity: 0.8; }
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+            min-height: 20px;
+        }
+        .history {
+            margin-top: 20px;
+            text-align: right;
+            font-size: 13px;
+            color: #cbd5e1;
+            max-height: 120px;
+            overflow-y: auto;
+        }
+        ul { padding-right: 20px; margin: 5px 0; }
+    </style>
 </head>
 <body>
-    <h1>Mini Mobile Money System</h1>
-    <p>Welcome to the Mobile Money App</p>
+
+    <div class="container">
+        <h2>Mobile Money 💸</h2>
+        
+        <div class="balance-card">
+            <div>الرصيد الحالي</div>
+            <div class="balance-amount"><span id="balance">1000</span> RWF</div>
+        </div>
+
+        <input type="number" id="amountInput" placeholder="أدخل المبلغ هنا...">
+
+        <div class="btn-group">
+            <button class="btn-deposit" onclick="deposit()">إيداع +</button>
+            <button class="btn-withdraw" onclick="withdraw()">سحب -</button>
+        </div>
+
+        <div id="message"></div>
+
+        <div class="history">
+            <strong>سجل المعاملات:</strong>
+            <ul id="historyList"></ul>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
