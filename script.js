@@ -1,0 +1,1 @@
+console.log("Mini Mobile Money System Ready");
